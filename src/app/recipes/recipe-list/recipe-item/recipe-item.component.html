@@ -1,1 +1,13 @@
-<p>recipe-item works!</p>
+<a href="#" class="list-group-item clearfix" >      <!--iterate over the recipes array of recipe-list.component.ts-->
+
+            <div class="pull-left">         <!--render the recipe name and descrition on the left of the column-->
+                <h4 class="list-group-item-heading">{{recipe.name}}</h4> <!--render the recipe name using string interpolation-->
+                <p class="list-group-item-text">{{recipe.description}}</p> <!--rnder the recipe description same way-->
+            </div>
+
+            <span class="pull-right">          <!--render the recipe image on the right side of the column-->
+                <!--render the image by providing image path using proerty binding-->
+                <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-responsive" style="max-height: 50px;">
+            </span>
+
+</a>

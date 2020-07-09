@@ -16,8 +16,8 @@
         <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true"> <!--all the navbar items come under this div-->
             <!--navbar-collapse class hides the item when viewport is smaller then certain limit-->    
             <ul class = "nav navbar-nav">   <!--this ul will holds the items which are located on left of the navbar-->
-                <li><a href="#">Recipes</a></li>
-                <li><a href="#">Shopping List</a></li>
+                <li><a href="#" (click)="onRecipes()">Recipes</a></li>
+                <li><a href="#" (click)="onShopping()">Shopping List</a></li>
             </ul>
 
 

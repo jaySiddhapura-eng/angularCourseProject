@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -8,13 +8,17 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeListComponent implements OnInit {
 
+  @Output()
+  recipeWasSelected = new EventEmitter<Recipe>();
+
+
 // recipes array holds the various racipes 
 // data type of racipes array is Racipe model
   recipes:Recipe[] = [
     // creating new object of/from Recipe model
-    new Recipe('dummy recipe', 'this is the desc of dummy rec','https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg'),
-    new Recipe('dummy recipe', 'this is the desc of dummy rec','https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg'),
-    new Recipe('dummy recipe', 'this is the desc of dummy rec','https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg'),
+    new Recipe('Gnocchi', 'An italian recipe','https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg'),
+    new Recipe('Taco', 'A maxican recipe','https://www.chelseasmessyapron.com/wp-content/uploads/2018/12/Healthy-Tacos-6.jpg'),
+    new Recipe('Mac and Cheese', 'An Amarican recipe','https://pinchofyum.com/wp-content/uploads/Best-Instant-Pot-Mac-and-Cheese.jpg'),
   ];
 
   constructor() { }
@@ -22,6 +26,9 @@ export class RecipeListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onRecipeSelected(recipe:Recipe){
+    this.recipeWasSelected.emit(recipe);
+  }
 }
 
 

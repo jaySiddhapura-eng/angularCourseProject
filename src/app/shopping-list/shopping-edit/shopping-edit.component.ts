@@ -8,8 +8,6 @@ import { Ingredient } from 'src/app/shared/ingredient.model';
 })
 export class ShoppingEditComponent implements OnInit {
 
-  ingredients:Ingredient[] = [];  // an array which holds the ingredients
-
   // viewChild for name input
   @ViewChild('nameInput', {static:false}) 
   nameInputRef:ElementRef;

@@ -18,4 +18,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ![recipe diagram](assets/reipeDiagram.PNG)
 
+## Shopping List diagram
 
+![shopping list](assets/shoppingList.PNG)

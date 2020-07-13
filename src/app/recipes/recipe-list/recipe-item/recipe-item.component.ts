@@ -10,6 +10,7 @@ export class RecipeItemComponent implements OnInit {
 
   @Input() 
   recipe: Recipe; // variable recipe is the type Recipe from model
+  // the value of recipe is obtained from recipe list component
 
   @Output()
   recipeSelected = new EventEmitter<void>();

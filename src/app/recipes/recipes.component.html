@@ -11,6 +11,7 @@
         <app-recipe-detail
         *ngIf="selectedRecipe; else infoText"
         [recipe] = "selectedRecipe"></app-recipe-detail>
+        <!--ngIf recipe selected then render this section or render the infoText-->
 
         <ng-template #infoText>
             <p>please select the recipe</p>

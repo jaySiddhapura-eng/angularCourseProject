@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter } from "@angular/core";
 import {Recipe} from "./recipe.model";
+import { Ingredient } from "../shared/ingredient.model";
 
 // a place in our app where we manage our recipes
 // can be an array of the recipes  
@@ -12,9 +13,29 @@ export class RecipeService {
 
    private recipes:Recipe[] = [
         // creating new object of/from Recipe model
-        new Recipe('Gnocchi', 'An italian recipe','https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg'),
-        new Recipe('Taco', 'A maxican recipe','https://www.chelseasmessyapron.com/wp-content/uploads/2018/12/Healthy-Tacos-6.jpg'),
-        new Recipe('Mac and Cheese', 'An Amarican recipe','https://pinchofyum.com/wp-content/uploads/Best-Instant-Pot-Mac-and-Cheese.jpg'),
+        new Recipe('Gnocchi', 
+                   'An italian recipe',
+                   'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg',
+                   [
+                      new Ingredient('pasta',100),
+                      new Ingredient('cheese',50),
+                      new Ingredient('green',50),
+                   ]),
+        new Recipe('Taco', 
+                   'A maxican recipe',
+                   'https://www.chelseasmessyapron.com/wp-content/uploads/2018/12/Healthy-Tacos-6.jpg',
+                   [
+                      new Ingredient('tortila', 1),
+                      new Ingredient('beans', 50),
+                      new Ingredient('meat', 50)
+                   ]),
+        new Recipe('Mac and Cheese', 
+                   'An Amarican recipe',
+                   'https://pinchofyum.com/wp-content/uploads/Best-Instant-Pot-Mac-and-Cheese.jpg',
+                   [
+                     new Ingredient('Mac', 1),
+                     new Ingredient('cheese', 50)
+                   ]),
       ];
 
 

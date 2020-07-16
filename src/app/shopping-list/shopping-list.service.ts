@@ -20,4 +20,8 @@ export class shoppingListService {
         this.newIngredientAdded.emit(this.ingredients);
     }
 
+    addIngredients(ing:Ingredient[]){
+        this.ingredients.push(...ing); // this will push the entire array into the ingredient array
+        this.newIngredientAdded.emit(this.ingredients.slice());
+    }
 }

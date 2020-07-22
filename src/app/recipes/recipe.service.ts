@@ -53,6 +53,11 @@ export class RecipeService {
        // which we dont need, because we are trying to keep this array trully private
    }    
 
+   // this method will give single recipe according to the given index number
+   getRec(index: number){
+      return this.recipes[index];
+   }
+
    addIngredientToShoppingList(ing:Ingredient[]){
       this.shoppingListService.addIngredients(ing);
    }

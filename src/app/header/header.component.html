@@ -16,18 +16,23 @@
         <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true"> <!--all the navbar items come under this div-->
             <!--navbar-collapse class hides the item when viewport is smaller then certain limit-->    
             <ul class = "nav navbar-nav">   <!--this ul will holds the items which are located on left of the navbar-->
-                <li><a href="#" (click)="onRecipes()">Recipes</a></li>
-                <li><a href="#" (click)="onShopping()">Shopping List</a></li>
+                <li routerLinkActive = "active"
+                    [routerLinkActiveOptions] = "{exact:true}">
+                    <a routerLink = "/recipes">Recipes</a>
+                </li>
+                <li routerLinkActive = "active">
+                    <a routerLink = "/shopping-list">Shopping List</a>
+                </li>
             </ul>
 
 
             <ul class="nav  navbar-nav navbar-right">   <!--this ul will hold the dropdown item which is located on right of navbar-->
                 <li class="dropdown" appDropdown>                   <!--dropdown responsible to show child items-->
                     <!--a button which toggle between dropdown states-->
-                    <a href="#" class="dropdown-toggle" role="button">Manage<span class="caret"></span></a> 
+                    <a style = "cursor:pointer;" class="dropdown-toggle" role="button">Manage<span class="caret"></span></a> 
                     <ul class="dropdown-menu">  <!--when manage drop down this list will appear-->
-                        <li><a href="#">Save data</a></li>
-                        <li><a href="#">Fetch data</a></li>
+                        <li><a style = "cursor:pointer;">Save data</a></li>
+                        <li><a style = "cursor:pointer;">Fetch data</a></li>
                     </ul>
                 </li>
             </ul>

@@ -1,4 +1,4 @@
-<app-header (featureSelected)="onNavigate($event)"></app-header>    
+<app-header></app-header>    
 <!--featureSelected resides in header.ts-->
 <!--featureSelected is the custom property of app-header-->
 <!--onNavigate() resides in app.ts-->
@@ -7,10 +7,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <!--selectedFeaturePage is variable local to the app compoent-->
-            <!-- therefore it can be used in inside component-->
-            <app-recipes *ngIf="selectedFeaturePage === 'recipes'"></app-recipes>
-           <app-shopping-list *ngIf="selectedFeaturePage !== 'recipes'"></app-shopping-list> 
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

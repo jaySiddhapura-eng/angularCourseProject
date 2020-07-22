@@ -1,5 +1,7 @@
-<a href="#" class="list-group-item clearfix" 
-(click) = "onSelected()"
+<a style = "cursor: pointer;" 
+   class="list-group-item clearfix" 
+   [routerLink] = "[index]"
+   routerLinkActive = "active"
 >      <!--iterate over the recipes array of recipe-list.component.ts-->
 
             <div class="pull-left">         <!--render the recipe name and descrition on the left of the column-->

@@ -5,16 +5,9 @@
         <app-recipe-list></app-recipe-list>
     </div>
 
-    <div class="col-md-7">  <!--recipe detail will be desplayed in the next 7 column of the row-->
+    <div class="col-md-7 justify-content-center text-center">  <!--recipe detail will be desplayed in the next 7 column of the row-->
         <!--position: right side of the page-->
-        <app-recipe-detail
-        *ngIf="selectedRecipe; else infoText"
-        [recipe] = "selectedRecipe"></app-recipe-detail>
-        <!--ngIf recipe selected then render this section or render the infoText-->
-
-        <ng-template #infoText>
-            <p>please select the recipe</p>
-        </ng-template>
+        <router-outlet></router-outlet>
     </div>
 
 </div>

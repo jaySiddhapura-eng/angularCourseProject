@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../../recipe.model';
-import { RecipeService } from '../../recipe.service';
 
 @Component({
   selector: 'app-recipe-item',
@@ -13,16 +12,13 @@ export class RecipeItemComponent implements OnInit {
   recipe: Recipe; // variable recipe is the type Recipe from model
   // the value of recipe is obtained from recipe list component
 
- 
-  
-
-  constructor(private recipeService:RecipeService) { }
+  // pass the index value to this component from outside
+  // this index value is coming from the recipe-list.component.html
+  @Input()
+  index:number;
 
   ngOnInit() {
   }
 
-  onSelected(){
-    this.recipeService.recipeSelected.emit(this.recipe);
-  }
 
 }

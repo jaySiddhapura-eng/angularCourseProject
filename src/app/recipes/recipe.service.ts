@@ -1,7 +1,8 @@
-import { Injectable, EventEmitter } from "@angular/core";
+import { Injectable } from "@angular/core";
 import {Recipe} from "./recipe.model";
 import { Ingredient } from "../shared/ingredient.model";
 import { shoppingListService } from "../shopping-list/shopping-list.service";
+import { Subject } from "rxjs";
 
 // a place in our app where we manage our recipes
 // can be an array of the recipes  
@@ -9,8 +10,7 @@ import { shoppingListService } from "../shopping-list/shopping-list.service";
 @Injectable()
 export class RecipeService {
 
-   // a broker for recipe selected topic
-   recipeSelected = new EventEmitter<Recipe>();
+
 
    constructor(private shoppingListService:shoppingListService){
    }

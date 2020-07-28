@@ -6,4 +6,10 @@
     margin: 2px;
 }
 
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+    border:1px solid red;
+    background-color: rgb(240, 171, 159);
+}
+
 

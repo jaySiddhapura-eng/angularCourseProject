@@ -10,7 +10,7 @@ import { Subject } from "rxjs";
 @Injectable()
 export class RecipeService {
 
-
+   recipeChanged = new Subject<Recipe[]>();
 
    constructor(private shoppingListService:shoppingListService){
    }
@@ -60,6 +60,21 @@ export class RecipeService {
 
    addIngredientToShoppingList(ing:Ingredient[]){
       this.shoppingListService.addIngredients(ing);
+   }
+
+   addRecipe(recipe: Recipe){
+      this.recipes.push(recipe);
+      this.recipeChanged.next(this.recipes.slice());
+   }
+
+   updateRecipe(index: number, newRecipe: Recipe){
+      this.recipes[index] = newRecipe;
+      this.recipeChanged.next(this.recipes.slice());
+   }
+
+   deleteRecipe(index:number){
+      this.recipes.splice(index, 1);
+      this.recipeChanged.next(this.recipes.slice());
    }
 
 }

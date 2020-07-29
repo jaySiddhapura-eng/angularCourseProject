@@ -43,7 +43,7 @@ export class RecipeService {
       ];
 
 
-
+   // following method provides the copy of the recipe array
    getRecipe(){
        return this.recipes.slice();
        // because of SLICE() we are returning the copy of an array recipes
@@ -58,20 +58,24 @@ export class RecipeService {
       return this.recipes[index];
    }
 
+   // add the ingredients to the shopping list
    addIngredientToShoppingList(ing:Ingredient[]){
       this.shoppingListService.addIngredients(ing);
    }
 
+   // add new single recipe in the recipe array
    addRecipe(recipe: Recipe){
       this.recipes.push(recipe);
       this.recipeChanged.next(this.recipes.slice());
    }
 
+   // update the already present recipe in the recipe array
    updateRecipe(index: number, newRecipe: Recipe){
       this.recipes[index] = newRecipe;
       this.recipeChanged.next(this.recipes.slice());
    }
 
+   // delete the perticular recipe
    deleteRecipe(index:number){
       this.recipes.splice(index, 1);
       this.recipeChanged.next(this.recipes.slice());

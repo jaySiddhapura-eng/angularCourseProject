@@ -31,8 +31,8 @@
                     <!--a button which toggle between dropdown states-->
                     <a style = "cursor:pointer;" class="dropdown-toggle" role="button">Manage<span class="caret"></span></a> 
                     <ul class="dropdown-menu">  <!--when manage drop down this list will appear-->
-                        <li><a style = "cursor:pointer;">Save data</a></li>
-                        <li><a style = "cursor:pointer;">Fetch data</a></li>
+                        <li><a style = "cursor:pointer;" (click) = "saveData()">Save data</a></li>
+                        <li><a style = "cursor:pointer;" (click) = "fetchData()">Fetch data</a></li>
                     </ul>
                 </li>
             </ul>

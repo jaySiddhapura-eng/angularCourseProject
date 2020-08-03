@@ -12,35 +12,37 @@ export class RecipeService {
 
    recipeChanged = new Subject<Recipe[]>();
 
+  private recipes:Recipe[] = [];
+
    constructor(private shoppingListService:shoppingListService){
    }
 
-   private recipes:Recipe[] = [
-        // creating new object of/from Recipe model
-        new Recipe('Gnocchi', 
-                   'An italian recipe',
-                   'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg',
-                   [
-                      new Ingredient('pasta',100),
-                      new Ingredient('cheese',50),
-                      new Ingredient('green',50),
-                   ]),
-        new Recipe('Taco', 
-                   'A maxican recipe',
-                   'https://www.chelseasmessyapron.com/wp-content/uploads/2018/12/Healthy-Tacos-6.jpg',
-                   [
-                      new Ingredient('tortila', 1),
-                      new Ingredient('beans', 50),
-                      new Ingredient('meat', 50)
-                   ]),
-        new Recipe('Mac and Cheese', 
-                   'An Amarican recipe',
-                   'https://pinchofyum.com/wp-content/uploads/Best-Instant-Pot-Mac-and-Cheese.jpg',
-                   [
-                     new Ingredient('Mac', 1),
-                     new Ingredient('cheese', 50)
-                   ]),
-      ];
+   // private recipes:Recipe[] = [
+   //      // creating new object of/from Recipe model
+   //      new Recipe('Gnocchi', 
+   //                 'An italian recipe',
+   //                 'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg',
+   //                 [
+   //                    new Ingredient('pasta',100),
+   //                    new Ingredient('cheese',50),
+   //                    new Ingredient('green',50),
+   //                 ]),
+   //      new Recipe('Taco', 
+   //                 'A maxican recipe',
+   //                 'https://www.chelseasmessyapron.com/wp-content/uploads/2018/12/Healthy-Tacos-6.jpg',
+   //                 [
+   //                    new Ingredient('tortila', 1),
+   //                    new Ingredient('beans', 50),
+   //                    new Ingredient('meat', 50)
+   //                 ]),
+   //      new Recipe('Mac and Cheese', 
+   //                 'An Amarican recipe',
+   //                 'https://pinchofyum.com/wp-content/uploads/Best-Instant-Pot-Mac-and-Cheese.jpg',
+   //                 [
+   //                   new Ingredient('Mac', 1),
+   //                   new Ingredient('cheese', 50)
+   //                 ]),
+   //    ];
 
 
    // following method provides the copy of the recipe array
@@ -78,6 +80,11 @@ export class RecipeService {
    // delete the perticular recipe
    deleteRecipe(index:number){
       this.recipes.splice(index, 1);
+      this.recipeChanged.next(this.recipes.slice());
+   }
+
+   setRecipes(rec:Recipe[]){
+      this.recipes = rec;
       this.recipeChanged.next(this.recipes.slice());
    }
 

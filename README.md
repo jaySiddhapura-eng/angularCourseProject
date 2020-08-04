@@ -14,10 +14,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Recipe Diagram
+## Recipe Diagram [without routing]
 
 ![recipe diagram](assets/reipeDiagram.PNG)
 
-## Shopping List diagram
+## Shopping List diagram [without routing]
 
 ![shopping list](assets/shoppingList.PNG)
+
+Note: The cross component communication is later achieved using routing approach

@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { AuthService, AuthResponseData } from "./auth.service";
 import { Observable } from "rxjs";
+import { Router } from "@angular/router";
 
 
 
@@ -14,7 +15,8 @@ import { Observable } from "rxjs";
 export class AuthComponent{
     
 
-    constructor(private authSer:AuthService, ){}
+    constructor(private authSer:AuthService, 
+                private router:Router){}
 
     // flag to show whether user is in  signup mode or login mode
     isLoginMode = true;
@@ -54,6 +56,7 @@ export class AuthComponent{
             responseData => {
                 console.log(responseData);
                 this.isLoading = false;
+                this.router.navigate(['/recipes']);
             },
             errorMessage => {
                 this.error = errorMessage;

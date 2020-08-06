@@ -17,20 +17,26 @@
             <!--navbar-collapse class hides the item when viewport is smaller then certain limit-->    
             <ul class = "nav navbar-nav">   <!--this ul will holds the items which are located on left of the navbar-->
                 <li routerLinkActive = "active"
-                    [routerLinkActiveOptions] = "{exact:true}">
-                    <a routerLink = "/recipes">Recipes</a>
+                    [routerLinkActiveOptions] = "{exact:true}"
+                    *ngIf = "isAuthenticated">
+                    <a routerLink = "/recipes"
+                    >Recipes</a>
                 </li>
                 <li routerLinkActive = "active">
                     <a routerLink = "/shopping-list">Shopping List</a>
                 </li>
-                <li routerLinkActive = "active">
+                <li routerLinkActive = "active"
+                *ngIf = "!isAuthenticated">
                     <a routerLink = "/auth">Authentication</a>
                 </li>
             </ul>
 
 
             <ul class="nav  navbar-nav navbar-right">   <!--this ul will hold the dropdown item which is located on right of navbar-->
-                <li class="dropdown" appDropdown>                   <!--dropdown responsible to show child items-->
+                <li  *ngIf = "isAuthenticated">
+                    <a style = "cursor:pointer;" (click) = "onLogout()">Logout</a>
+                </li>
+                <li class="dropdown" appDropdown  *ngIf = "isAuthenticated">                   <!--dropdown responsible to show child items-->
                     <!--a button which toggle between dropdown states-->
                     <a style = "cursor:pointer;" class="dropdown-toggle" role="button">Manage<span class="caret"></span></a> 
                     <ul class="dropdown-menu">  <!--when manage drop down this list will appear-->

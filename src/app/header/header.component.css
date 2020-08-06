@@ -1,0 +1,14 @@
+.navbar{
+    box-shadow: 0 2px 15px -2px rgba(0,0,0,.2);
+}
+
+.active{
+    -webkit-box-shadow: 0 8px 6px -6px rgb(32, 115, 224);
+    -moz-box-shadow: 0 8px 6px -6px rgb(32, 115, 224);
+         box-shadow: 0 8px 6px -6px rgb(32, 115, 224);
+}
+
+.navbar-brand{
+    font-family: 'Montserrat', sans-serif;
+font-family: 'Red Rose', cursive;
+}

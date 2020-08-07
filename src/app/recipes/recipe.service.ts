@@ -88,4 +88,8 @@ export class RecipeService {
       this.recipeChanged.next(this.recipes.slice());
    }
 
+   deleteAllRecipeLocal(){
+      this.recipes = [];
+      this.recipeChanged.next(this.recipes.slice());
+   }
 }

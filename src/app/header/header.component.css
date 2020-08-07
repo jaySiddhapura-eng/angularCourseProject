@@ -5,10 +5,24 @@
 .active{
     -webkit-box-shadow: 0 8px 6px -6px rgb(32, 115, 224);
     -moz-box-shadow: 0 8px 6px -6px rgb(32, 115, 224);
-         box-shadow: 0 8px 6px -6px rgb(32, 115, 224);
+    box-shadow: 0 8px 6px -6px rgb(32, 115, 224);
+         
 }
 
+.navbar-brand{
+    font-weight: bolder;
+}
+
+.container-fluid{
+    background-color: rgb(179, 179, 204);
+    border: rgb(179, 179, 204);
+}
+
+
+
+/*
 .navbar-brand{
     font-family: 'Montserrat', sans-serif;
 font-family: 'Red Rose', cursive;
 }
+*/

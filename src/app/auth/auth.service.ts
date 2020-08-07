@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { catchError, tap } from "rxjs/Operators";
-import { throwError, BehaviorSubject } from "rxjs";
+import { throwError, BehaviorSubject, Subject } from "rxjs";
 import { User } from "./user.model";
 import { Router } from "@angular/router";
 
@@ -23,6 +23,8 @@ export class AuthService{
     private loginURL = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBRJOyGKwNuEMzGq0O4q9gG4K0sGG6MqlY';
 
     user = new BehaviorSubject<User>(null);
+
+    signInFlag = new Subject<boolean>();
 
     private tokenExpirationTimer: any;
 
@@ -46,6 +48,8 @@ export class AuthService{
     }
 
     login(email:string, password:string){   // only prepare the observable but no subscribe here
+        this.signInFlag.next(true);  
+
         return this.http.post<AuthResponseData>(this.loginURL,
                 {email:email,
                 password:password,
@@ -57,6 +61,8 @@ export class AuthService{
                                     this.userAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
                                 }
                             ));
+
+                            
     }
 
     autoLogin(){

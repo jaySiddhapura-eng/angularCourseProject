@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
         //this.remote.storeRecipes();
         //console.log('save data clicked');
         this.remote.storeRecipes();
+        console.log('saveData executed');
     }
 
     fetchData(){
@@ -41,6 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
     }
 
     onLogout(){
+        this.saveData();
         this.authService.logout();
     }
 

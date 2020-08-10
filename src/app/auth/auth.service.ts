@@ -4,6 +4,7 @@ import { catchError, tap } from "rxjs/Operators";
 import { throwError, BehaviorSubject, Subject } from "rxjs";
 import { User } from "./user.model";
 import { Router } from "@angular/router";
+import { RecipeService } from "../recipes/recipe.service";
 
 export interface AuthResponseData {
     idToken : string;
@@ -30,7 +31,9 @@ export class AuthService{
 
 
     constructor(private http : HttpClient,
-                private router : Router){
+                private router : Router,
+                private recSer : RecipeService,
+                ){
     }
 
     signUp(email:string, password:string){
@@ -48,7 +51,7 @@ export class AuthService{
     }
 
     login(email:string, password:string){   // only prepare the observable but no subscribe here
-        this.signInFlag.next(true);  
+        
 
         return this.http.post<AuthResponseData>(this.loginURL,
                 {email:email,
@@ -97,6 +100,8 @@ export class AuthService{
 
         // clear the user data locally stored
         localStorage.removeItem('userData');
+
+        this.recSer.deleteAllRecipeLocal();
 
         if(this.tokenExpirationTimer){
             clearTimeout(this.tokenExpirationTimer);

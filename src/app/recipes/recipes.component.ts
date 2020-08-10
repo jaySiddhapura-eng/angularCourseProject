@@ -24,17 +24,10 @@ export class RecipesComponent implements OnInit, OnDestroy{
   authSubscription: Subscription;
   fetchSubscription : Subscription;
 
-  signIn: boolean = false ;
-  num = 0;
 
   ngOnInit() {
     //this.recipService.deleteAllRecipeLocal();
 
-   this.authService.signInFlag.subscribe(
-      response => {
-        console.log(response);
-      }
-    );
     
       console.log('in condition');
       this.fetchSubscription  = this.remote.fetchRecipes().subscribe(

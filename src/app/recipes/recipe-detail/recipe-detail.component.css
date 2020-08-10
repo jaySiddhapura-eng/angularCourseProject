@@ -1,3 +1,26 @@
 .col-xs-12{
     padding: 5px;
 }
+
+.desc{
+    margin-left: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-bottom: 20px;
+}
+
+.drop{
+    margin-left: -10px;
+}
+a.c-hover:hover, a.c-hover:active{
+    color: darkred;
+    background-color: rgb(161, 157, 190);
+}
+
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button{
+    padding-top: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

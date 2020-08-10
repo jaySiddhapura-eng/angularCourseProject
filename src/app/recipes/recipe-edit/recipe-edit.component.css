@@ -9,7 +9,24 @@
 input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
     border:1px solid red;
-    background-color: rgb(240, 171, 159);
+    background-color: rgb(228, 175, 165);
 }
 
+
+button{
+    padding-top: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+label{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form-control{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cross{
+    background-color: rgb(216, 38, 38);
+}
 

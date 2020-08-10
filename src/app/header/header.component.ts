@@ -15,6 +15,8 @@ export class HeaderComponent implements OnInit, OnDestroy{
 
     isAuthenticated = false;
 
+    userName: string = null;
+
     constructor(private remote:DataStorageService, 
                 private authService : AuthService){
     }
@@ -24,6 +26,10 @@ export class HeaderComponent implements OnInit, OnDestroy{
     ngOnInit(){
         this.userSub = this.authService.user.subscribe(
             user => {
+                if(user != null){
+                this.userName = user.email;
+                console.log('current User : ' + this.userName);
+                }
                 this.isAuthenticated = !user ? false :true;
             }
         );
@@ -33,7 +39,6 @@ export class HeaderComponent implements OnInit, OnDestroy{
         //this.remote.storeRecipes();
         //console.log('save data clicked');
         this.remote.storeRecipes();
-        console.log('saveData executed');
     }
 
     fetchData(){
@@ -42,6 +47,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
     }
 
     onLogout(){
+        this.userName = null;
         this.saveData();
         this.authService.logout();
     }

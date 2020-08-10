@@ -33,6 +33,9 @@
 
 
             <ul class="nav  navbar-nav navbar-right">   <!--this ul will hold the dropdown item which is located on right of navbar-->
+                <li *ngIf = "userName != null">
+                    <a>User : {{userName}}</a>
+                </li>
                 <li  *ngIf = "isAuthenticated">
                     <a style = "cursor:pointer;" (click) = "onLogout()">Logout</a>
                 </li>

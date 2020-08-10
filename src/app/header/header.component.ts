@@ -11,6 +11,8 @@ import { Subscription } from 'rxjs';
 )
 export class HeaderComponent implements OnInit, OnDestroy{
 
+    collapsed;
+
     private userSub : Subscription;
 
     isAuthenticated = false;

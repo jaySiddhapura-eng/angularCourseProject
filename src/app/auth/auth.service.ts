@@ -5,6 +5,7 @@ import { throwError, BehaviorSubject, Subject } from "rxjs";
 import { User } from "./user.model";
 import { Router } from "@angular/router";
 import { RecipeService } from "../recipes/recipe.service";
+import {environment} from '../../environments/environment'
 
 export interface AuthResponseData {
     idToken : string;
@@ -20,8 +21,8 @@ export interface AuthResponseData {
 })
 export class AuthService{
 
-    private signUpURL = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBRJOyGKwNuEMzGq0O4q9gG4K0sGG6MqlY';
-    private loginURL = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBRJOyGKwNuEMzGq0O4q9gG4K0sGG6MqlY';
+    private signUpURL = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key='+environment.firebaseAPIKey;
+    private loginURL = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key='+environment.firebaseAPIKey;
 
     user = new BehaviorSubject<User>(null);
 

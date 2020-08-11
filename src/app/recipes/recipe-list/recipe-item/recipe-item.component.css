@@ -9,3 +9,11 @@
     padding-bottom: 10px;
     font-size: 14px;
 }
+
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    width: 20em;
+  }

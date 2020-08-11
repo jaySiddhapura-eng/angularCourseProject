@@ -6,6 +6,7 @@ import { User } from "./user.model";
 import { Router } from "@angular/router";
 import { RecipeService } from "../recipes/recipe.service";
 import {environment} from '../../environments/environment'
+import { DataStorageService } from "../shared/data-storage.service";
 
 export interface AuthResponseData {
     idToken : string;
@@ -33,8 +34,7 @@ export class AuthService{
 
     constructor(private http : HttpClient,
                 private router : Router,
-                private recSer : RecipeService,
-                ){
+                private recSer : RecipeService){
     }
 
     signUp(email:string, password:string){
@@ -90,7 +90,7 @@ export class AuthService{
          if(LoadedUser.token){
            this.user.next(LoadedUser);  
            const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
-           this.autoLogout(expirationDuration);
+           //this.autoLogout(expirationDuration);
          }
  
     }
@@ -99,8 +99,23 @@ export class AuthService{
         this.user.next(null);   // make the user object null
         this.router.navigate(['/auth']);
 
+        // let userData = JSON.parse(localStorage.getItem('userData'));
+        // let userId = userData.id;
+        // console.log(userId);
+
+        // let newLink = 'https://recipe-book-storage-c63c0.firebaseio.com/' + userId + '.json';
+
+        // const recipes = this.recSer.getRecipe();
+        // this.http.put(newLink, recipes).subscribe(
+        //     response => {
+        //         console.log(response);
+        //     }
+        // );
+        
         // clear the user data locally stored
         localStorage.removeItem('userData');
+
+        
 
         this.recSer.deleteAllRecipeLocal();
 
@@ -110,12 +125,13 @@ export class AuthService{
         this.tokenExpirationTimer = null;
     }
 
-    autoLogout(expirationDuration : number){
-        this.tokenExpirationTimer = setTimeout(() =>{
-            this.logout();
+    // autoLogout(expirationDuration : number){
+    //     this.tokenExpirationTimer = setTimeout(() =>{
+    //         this.logout();
 
-        },expirationDuration);
-    }
+    //     },expirationDuration);
+    // }
+
 
 
 
@@ -161,7 +177,7 @@ export class AuthService{
                               expirationDate);
 
         this.user.next(user);
-        this.autoLogout(expiresIn*1000);
+        //this.autoLogout(expiresIn*1000);
         localStorage.setItem('userData', JSON.stringify(user));
 
     }

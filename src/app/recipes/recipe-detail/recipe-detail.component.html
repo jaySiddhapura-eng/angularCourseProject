@@ -1,20 +1,20 @@
 
-<div class="row desc">
+<div class="row" style="justify-content: center;">
     <div class="col-md-12">
         <!--image source-->
-        <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-fluid" style="max-height: 300px;">
+        <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-fluid " style="max-width: 100%; height: auto;">
     </div><!--end of column div-->
 </div><!--end of row div-->
 
 
-<div class="row desc">
+<div class="row" style="justify-content: center;">
     <div class="col-xs-12">
         <!--the title for recipe name-->
         <h1>{{recipe.name}}</h1>
     </div><!--end of column div-->
 </div><!--end of row div-->
 
-<div class="row desc">
+<div class="row" style="justify-content: center;">
     <div class="col-xs-12">
         <!--a drop down button for diffent action-->
         <div class="btn-group" appDropdown>
@@ -33,12 +33,12 @@
 </div>
 
 <div class="row">
-    <div class="col-xs-12 desc">
+    <div class="col-xs-12 " style="justify-content: center;">
         {{recipe.description}}
     </div><!--end of column div-->
 </div><!--end of row div-->
 
-<div class="row desc">
+<div class="row" desc>
     <div class="col-xs-12">
         <ul class="list-group">
             <li class="list-group-item"

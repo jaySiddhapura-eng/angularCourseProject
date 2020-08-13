@@ -42,7 +42,11 @@
                 <li class="dropdown" appDropdown  *ngIf = "isAuthenticated">                   <!--dropdown responsible to show child items-->
                     <!--a button which toggle between dropdown states-->
                     <a style = "cursor:pointer;" class="dropdown-toggle" role="button">Manage<span class="caret"></span></a> 
-                    <ul class="dropdown-menu">  <!--when manage drop down this list will appear-->
+
+                    <ul class="dropdown-menu">  
+
+                    <!--when manage drop down this list will appear-->
+
                         <li><a style = "cursor:pointer;" (click) = "saveData()">Save data</a></li>
                         <li><a style = "cursor:pointer;" (click) = "fetchData()">Fetch data</a></li>
                     </ul>

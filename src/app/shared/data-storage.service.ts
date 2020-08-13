@@ -40,9 +40,12 @@ export class DataStorageService{
             }
         );
 
+        const recipes = this.recipeService.getRecipe();
+        console.log(recipes);
+            
         this.newLink = 'https://recipe-book-storage-c63c0.firebaseio.com/' + this.userId + '.json';
 
-        const recipes = this.recipeService.getRecipe();
+        
         this.http.put(this.newLink, recipes).subscribe(
             response => {
                 console.log(response);

@@ -11,13 +11,14 @@ import { Subscription } from 'rxjs';
 )
 export class HeaderComponent implements OnInit, OnDestroy{
 
-    collapsed;
+    collapsed = true;
 
     private userSub : Subscription;
 
     isAuthenticated = false;
 
     userName: string = null;
+
 
     constructor(private remote:DataStorageService, 
                 private authService : AuthService){
@@ -53,6 +54,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
         this.saveData();
         this.authService.logout();
     }
+
 
     ngOnDestroy(){
         this.userSub.unsubscribe();
